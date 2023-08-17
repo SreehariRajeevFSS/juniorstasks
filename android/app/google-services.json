@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "685992493257",
+    "project_id": "signinpage-eb495",
+    "storage_bucket": "signinpage-eb495.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685992493257:android:99e03844c9f9a698c8cd18",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685992493257-ui2houjhfq36qc40q9vafq1islvg8f7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnu_f1hZN7EZTYk3Sb0jYVg81mX6hDYpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685992493257-ui2houjhfq36qc40q9vafq1islvg8f7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
