@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SignUpController extends GetxController {
+
+  
+  final Rx<DateTime> selectedDate = Rx<DateTime>(DateTime.now());
   
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
