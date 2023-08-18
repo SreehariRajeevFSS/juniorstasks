@@ -9,14 +9,14 @@ class SignupController extends GetxController {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController dobController = TextEditingController();
   final formKey = GlobalKey<FormState>().obs;
-
+  final viewPassword = false.obs;
   final RxBool isLoading = false.obs;
   final Rx<DateTime?> selectedDate = Rx<DateTime?>(null);
 
   RxBool agreed = false.obs;
 
   void toggleAgreement(bool value) {
-    //Get.snackbar(title, message)
+    
     agreed.value = value;
   }
 
@@ -63,5 +63,8 @@ class SignupController extends GetxController {
       Get.snackbar(
           "Please check the checkbox", "Fill the tearms and conduction");
     }
+  }
+   void toggleViewPassword() {
+    viewPassword.value = !viewPassword.value;
   }
 }

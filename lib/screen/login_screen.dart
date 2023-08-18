@@ -68,6 +68,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextFormField(
+                    obscureText: !loginController.showPassword.value,
                     controller: loginController.passwordController,
                     decoration: InputDecoration(
                      
@@ -83,6 +84,17 @@ class LoginPage extends StatelessWidget {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
+                    
+                     suffixIcon: IconButton(
+                    icon: loginController.showPassword.value
+                        ? Icon(Icons.visibility)
+                        // : Text(
+                        //     'SHOW',
+                        //     style: TextStyle(color: Colors.white),
+                        //   ),
+                     : Icon(Icons.visibility_off),
+                    onPressed: loginController.toggleShowPassword,
+                  ),
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -139,7 +151,7 @@ class LoginPage extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                           onPressed: () {
-                           // Get.off(()=>HomePage());
+                           
                             loginController.login();
                           },
                           style: ElevatedButton.styleFrom(

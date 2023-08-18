@@ -10,6 +10,7 @@ class LoginController extends GetxController {
   final formKey = GlobalKey<FormState>().obs;
   final isLoading = false.obs;
  final rememberMe = false.obs;
+ final showPassword = false.obs;
   Future<void> login() async {
     if (formKey.value.currentState!.validate()) {
       //isLoading.value = true;
@@ -56,5 +57,8 @@ class LoginController extends GetxController {
     } catch (error) {
       Get.snackbar('Error', error.toString());
     }
+  }
+   void toggleShowPassword() {
+    showPassword.value = !showPassword.value;
   }
 }
