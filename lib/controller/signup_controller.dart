@@ -56,7 +56,7 @@ class SignupController extends GetxController {
       }
     }
     }else{
-      Get.snackbar("Please chick the checkbox", "fill the tearms and conduction");
+      Get.snackbar("Please chick the checkbox", "Fill the tearms and conduction");
     }
     
   }
@@ -65,16 +65,7 @@ class SignupController extends GetxController {
 
 
 
-// import 'package:get/get.dart';
 
-// class TermsAndConditionsController extends GetxController {
-//   RxBool agreed = false.obs;
-
-//   void toggleAgreement(bool value) {
-//     agreed.value = value;
-//   }
-
-// }
 
 
 

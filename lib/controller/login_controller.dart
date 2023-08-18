@@ -59,31 +59,3 @@ class LoginController extends GetxController {
 
 
 
-// import 'package:challenge/screen/login_screen.dart';
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-
-// class AuthController extends GetxController {
-//  final FirebaseAuth _auth = FirebaseAuth.instance;
-//   final TextEditingController emailController = TextEditingController();
-//   final TextEditingController passwordController = TextEditingController();
-//   final TextEditingController firstNameController = TextEditingController();
-//   final TextEditingController lastNameController = TextEditingController();
-//   final TextEditingController dobController = TextEditingController();
-
-//   void signUp() async {
-//     try {
-//       await _auth.createUserWithEmailAndPassword(
-//         email: emailController.text,
-//         password: passwordController.text,
-//       );
-//       // You can save additional user details to Firebase Firestore here
-//       Get.offAll(SiginScreen());
-//     } catch (e) {
-//       // Handle sign-up errors
-//       print("Error during sign-up: $e");
-//     }
-//   }
-
-// }
