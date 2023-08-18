@@ -39,9 +39,14 @@ class BmiController extends GetxController {
         bgColor.value = Colors.green.shade200;
       }
 
-      result.value = '$msg\nYour BMI is: ${bmi.toStringAsFixed(2)}';
+      result.value = '$msg \n Your BMI is: ${bmi.toStringAsFixed(2)}';
     } else {
       result.value = 'Please fill all the required fields';
     }
+
+    Future.delayed(Duration(seconds: 2), () {
+      result.value = '';
+      
+    });
   }
 }
