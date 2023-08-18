@@ -15,12 +15,12 @@ class CalculatorScreen extends StatelessWidget {
         elevation: 0,
         title: const Text(
           "BMI Calculator App",
-          style: TextStyle(fontSize: 20, color: Colors.black),
+          style: TextStyle(fontSize: 30, color: Colors.black),
         ),
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(12),
+        padding: EdgeInsets.symmetric(vertical: 60, horizontal: 20),
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -63,8 +63,8 @@ class CalculatorScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Container(
-              width: double.infinity,
-              height: 60,
+              width: 300,
+              height: 50,
               child: ElevatedButton(
                 onPressed: () {
                   double height = double.parse(heightController.text);
@@ -73,20 +73,46 @@ class CalculatorScreen extends StatelessWidget {
                   weightController.clear();
                   heightController.clear();
                 },
-                child: Text("Calculate"),
+                child: const Text(
+                  "Calculate",
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ),
             const SizedBox(height: 20),
             GetX<CalculatorController>(
               init: CalculatorController(),
               builder: (controller) {
-                return Container(
-                  width: double.infinity,
-                  child: Text(
-                    "Your BMI is : ${controller.result}",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
+                String bmiResult = controller.result.value;
+                String massCategory =
+                    controller.massCategory.value.toString().split('.').last;
+
+                return Column(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      child: Text(
+                        "Your BMI is : $bmiResult",
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            color: Colors.pink,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      width: double.infinity,
+                      child: Text(
+                        "Category: $massCategory",
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            color: Colors.red,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
                 );
               },
             ),
