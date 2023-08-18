@@ -12,7 +12,7 @@ class SignupController extends GetxController {
   RxString dob = ''.obs;
   RxBool agree = false.obs;
 
-  void agreed(bool value) {
+  void toogleAgreement(bool value) {
     agree.value = value;
   }
 
@@ -26,21 +26,28 @@ class SignupController extends GetxController {
   final TextEditingController dobController = TextEditingController();
 
   Future<void> signUp() async {
-    if (agree.value == true) {
-      try {
-        final userCredential = await _auth.createUserWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text,
-        );
+    if (!agree.value) {
+      Get.snackbar("Terms Agreement", "Please agree to the terms.");
+      return;
+    }
 
-        if (userCredential.user != null) {
-          Get.to(() => LoginPage());
-        }
-      } catch (e) {
-        if (e is FirebaseAuthException) {}
+    try {
+      final userCredential = await _auth.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      if (userCredential.user != null) {
+        Get.off(() => LoginPage());
       }
-    } else {
-      Get.snackbar("", "");
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        Get.snackbar(
+          "Sign Up Error",
+          e.message ?? "An error occurred during sign up.",
+          backgroundColor: Colors.blue,
+        );
+      }
     }
   }
 }

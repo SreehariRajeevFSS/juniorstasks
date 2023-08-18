@@ -20,6 +20,5 @@ class LoginController extends GetxController {
     } catch (e) {
       print('Error: $e');
     }
-    Get.to(() => HomePage());
   }
 }
