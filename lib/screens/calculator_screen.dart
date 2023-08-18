@@ -52,7 +52,7 @@ class CalculatorScreen extends StatelessWidget {
               controller: weightController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                hintText: 'Your Weight in kg', // Corrected the hint text
+                hintText: 'Your Weight in kg',
                 filled: true,
                 fillColor: Colors.grey[200],
                 border: OutlineInputBorder(
