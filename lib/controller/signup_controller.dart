@@ -8,12 +8,12 @@ class SignupController extends GetxController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController dobController = TextEditingController();
-  final  formKey = GlobalKey<FormState>().obs;
+  final formKey = GlobalKey<FormState>().obs;
 
   final RxBool isLoading = false.obs;
   final Rx<DateTime?> selectedDate = Rx<DateTime?>(null);
-   
-    RxBool agreed = false.obs;
+
+  RxBool agreed = false.obs;
 
   void toggleAgreement(bool value) {
     //Get.snackbar(title, message)
@@ -21,52 +21,47 @@ class SignupController extends GetxController {
   }
 
   void selectDate(BuildContext context) async {
-    final DateTime picked = (await showDatePicker(
+    DateTime currentDate = DateTime.now();
+    DateTime? pickedDate = await showDatePicker(
       context: context,
-      initialDate: DateTime.now(),
+      initialDate: currentDate,
       firstDate: DateTime(1900),
-      lastDate: DateTime(2024),
-    ))!;
-    if (picked != null && picked != selectedDate.value) {
-      selectedDate.value = picked;
-      dobController.text = picked.toString();
-    }
-  }
-
-  Future<void> signup() async {
-    if (agreed.value==true){
-      if (formKey.value.currentState!.validate()) {
-      isLoading.value = true;
-
-      try {
-        final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text,
-        );
-
-        print(userCredential.user!.uid);
-        // Signup successful
-        Get.back(); // Navigate back to the previous screen
-      } catch (error) {
-        print(error.toString());
-        // Handle signup error
-        Get.snackbar('Error', error.toString());
-      } finally {
-        isLoading.value = false;
-      }
-    }
-    }else{
-      Get.snackbar("Please chick the checkbox", "Fill the tearms and conduction");
+      lastDate: DateTime.now(),
+    );
+    if (pickedDate != null && pickedDate != selectedDate.value) {
+      selectedDate.value = pickedDate;
+      dobController.text =
+          "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
     }
     
   }
+
+  Future<void> signup() async {
+    if (agreed.value == true) {
+      if (formKey.value.currentState!.validate()) {
+        isLoading.value = true;
+
+        try {
+          final userCredential =
+              await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: emailController.text,
+            password: passwordController.text,
+          );
+
+          print(userCredential.user!.uid);
+
+          Get.back();
+        } catch (error) {
+          print(error.toString());
+
+          Get.snackbar('Error', error.toString());
+        } finally {
+          isLoading.value = false;
+        }
+      }
+    } else {
+      Get.snackbar(
+          "Please check the checkbox", "Fill the tearms and conduction");
+    }
+  }
 }
-
-
-
-
-
-
-
-
-

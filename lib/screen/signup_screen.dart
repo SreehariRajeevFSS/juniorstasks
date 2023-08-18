@@ -186,6 +186,12 @@ class SignupScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(18),
                 ),
               ),
+              validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter your Date Of Birth';
+                                  }
+                                  return null;
+                                },
               onTap: () {
                 signupController.selectDate(context);
               },
@@ -194,7 +200,7 @@ class SignupScreen extends StatelessWidget {
               height: 30,
             ),
 
-                         CheckboxListTile(
+            CheckboxListTile(
             title: Text('Agree to terms & conditions,above 18+'),
             value: signupController.agreed.value,
             onChanged: (value) {
