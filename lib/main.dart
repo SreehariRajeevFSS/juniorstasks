@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:test/screens/calculator_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,12 +16,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Taks',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // home: LoginPage());
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Taks',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: CalculatorScreen());
   }
 }
