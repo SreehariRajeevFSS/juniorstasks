@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test/calculatepage1.dart';
+import 'package:test/calculatepage.dart';
+
 
 
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-    home: CalculatorPage1()
+    home: CalculatorPage()
     );
   }
 }
