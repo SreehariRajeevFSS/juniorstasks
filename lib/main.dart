@@ -1,5 +1,6 @@
 
 
+import 'package:challenge/bmi/bmi_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       //home: SiginScreen(),
     //   home: LoginPage(),
-      
+      home:  BmiScreen(),
     );
   }
 }
