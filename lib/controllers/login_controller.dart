@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  final String successMessage = 'Successful Login';
+  final String errorMessage = 'Please give correct credentials';
 
   Future<void> signIn() async {
     try {
@@ -15,15 +17,26 @@ class LoginController extends GetxController {
         email: emailController.text,
         password: passwordController.text,
       );
-      Get.offNamed('/home');
-    } catch (e) {
       Get.dialog(
         AlertDialog(
-          title:const Text('Successful Login'),
+          title: const Text('Successful Login'),
           actions: [
             TextButton(
               onPressed: () => Get.back(),
-              child:const Text('OK'),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    } catch (e) {
+      Get.dialog(
+        AlertDialog(
+          title: const Text('Login Error'),
+          content: Text(errorMessage),
+          actions: [
+            TextButton(
+              onPressed: () => Get.back(),
+              child: const Text('OK'),
             ),
           ],
         ),
@@ -36,12 +49,12 @@ class LoginController extends GetxController {
       await _auth.sendPasswordResetEmail(email: emailController.text);
       Get.dialog(
         AlertDialog(
-          title:const Text('Password Reset Email Sent'),
-          content:const Text('Check your email for instructions to reset your password.'),
+          title: const Text('Password Reset Email Sent'),
+          content: const Text('Check your email for instructions to reset your password.'),
           actions: [
             TextButton(
               onPressed: () => Get.back(),
-              child:const Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         ),
@@ -49,11 +62,11 @@ class LoginController extends GetxController {
     } catch (e) {
       Get.dialog(
         AlertDialog(
-          title:const Text('Password Reset Error'),
+          title: const Text('Password Reset Error'),
           actions: [
             TextButton(
               onPressed: () => Get.back(),
-              child:const Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         ),
@@ -61,5 +74,9 @@ class LoginController extends GetxController {
     }
   }
 }
+
+
+
+
 
 

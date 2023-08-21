@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test/signup_page.dart';
@@ -89,8 +90,7 @@ class LoginPage extends StatelessWidget {
                   onPressed: (){
                     _loginController.signIn();
                     if(_formKey.currentState!.validate()){
-                    _loginController.emailController.clear();
-                    _loginController.passwordController.clear();
+
                     }
                   },
                   style: ElevatedButton.styleFrom(
