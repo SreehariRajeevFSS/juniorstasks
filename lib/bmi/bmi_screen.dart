@@ -35,20 +35,20 @@ class BmiScreen extends StatelessWidget {
                   TextField(
                     controller: bmiController.fitController,
                     decoration: InputDecoration(
-                      labelText: 'Enter the height in FEET',
+                      labelText: 'Enter the height in CMS',
                       prefixIcon: Icon(Icons.height),
                     ),
                     keyboardType: TextInputType.number,
                   ),
                   SizedBox(height: 10),
-                  TextField(
-                    controller: bmiController.inController,
-                    decoration: InputDecoration(
-                      labelText: 'Enter the Height in INCH',
-                      prefixIcon: Icon(Icons.height),
-                    ),
-                    keyboardType: TextInputType.number,
-                  ),
+                  // TextField(
+                  //   controller: bmiController.inController,
+                  //   decoration: InputDecoration(
+                  //     labelText: 'Enter the Height in INCH',
+                  //     prefixIcon: Icon(Icons.height),
+                  //   ),
+                  //   keyboardType: TextInputType.number,
+                  // ),
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {

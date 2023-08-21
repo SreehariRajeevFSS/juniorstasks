@@ -11,18 +11,18 @@ class BmiController extends GetxController {
   void calculateBMI() {
     var wt = wtController.text.toString();
     var fit = fitController.text.toString();
-    var inch = inController.text.toString();
+    
 
-    if (wt != '' && fit != '' && inch != '') {
+    if (wt != '' && fit != '' ) {
       var iWt = int.parse(wt);
       var iFit = int.parse(fit);
-      var iInch = int.parse(inch);
+      // var iInch = int.parse(inch);
 
-      var tInch = (iFit * 12) + iInch;
+      // var tInch = (iFit * 12) + iInch;
 
-      var tCm = tInch * 2.54;
+      // var tCm = tInch * 2.54;
 
-      var tM = tCm / 100;
+      var tM = iFit / 100;
 
       var bmi = iWt / (tM * tM);
 
