@@ -60,25 +60,35 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                controller: loginController.passwordController,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.lock),
-                  suffixIcon: Icon(Icons.remove_red_eye),
-                  labelText: 'Password',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
+              Obx(
+                () => TextFormField(
+                  obscureText: loginController.hidePassword.value,
+                  keyboardType: TextInputType.emailAddress,
+                  controller: loginController.passwordController,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        loginController.toggleHidePassword();
+                      },
+                      icon: loginController.hidePassword.value
+                          ? Icon(Icons.visibility_off)
+                          : Icon(Icons.visibility),
+                    ),
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'Password',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please Enter the Password';
+                    }
+                    if (value.trim().length < 8) {
+                      return 'Password must be at least 8 characters in length';
+                    }
+                    return null;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please Enter the Password';
-                  }
-                  if (value.trim().length < 8) {
-                    return 'Password must be at least 8 characters in length';
-                  }
-                  return null;
-                },
               ),
               const SizedBox(
                 height: 20,
@@ -104,7 +114,6 @@ class LoginPage extends StatelessWidget {
                   if (_formKey.currentState!.validate()) {
                     loginController.emailController.clear();
                     loginController.passwordController.clear();
-                    Get.to(() => HomePage());
                   }
                 },
                 child: const Text(

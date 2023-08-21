@@ -10,10 +10,16 @@ class SignupController extends GetxController {
   RxString firstName = ''.obs;
   RxString lastName = ''.obs;
   RxString dob = ''.obs;
-  RxBool agree = false.obs;
+  RxBool agreedToTerms = false.obs;
+  RxBool isAbove18 = false.obs;
+  RxBool hiddenPassword = true.obs;
 
   void toogleAgreement(bool value) {
-    agree.value = value;
+    agreedToTerms.value = value;
+  }
+
+  toggleHiddenPassword() {
+    hiddenPassword.value = !hiddenPassword.value;
   }
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -26,7 +32,7 @@ class SignupController extends GetxController {
   final TextEditingController dobController = TextEditingController();
 
   Future<void> signUp() async {
-    if (!agree.value) {
+    if (!agreedToTerms.value) {
       Get.snackbar("Terms Agreement", "Please agree to the terms.");
       return;
     }
@@ -38,7 +44,7 @@ class SignupController extends GetxController {
       );
 
       if (userCredential.user != null) {
-        Get.off(() => LoginPage());
+        Get.back();
       }
     } catch (e) {
       if (e is FirebaseAuthException) {

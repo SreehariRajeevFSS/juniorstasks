@@ -56,24 +56,34 @@ class SignupPage extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                controller: signupController.passwordController,
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    labelText: 'Password',
-                    suffixIcon: Icon(Icons.visibility),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10))),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please Enter the Password';
-                  }
-                  if (value.trim().length < 8) {
-                    return 'Password must be at least 8 characters in length';
-                  }
-                  return null;
-                },
+              Obx(
+                () => TextFormField(
+                  obscureText: signupController.hiddenPassword.value,
+                  keyboardType: TextInputType.emailAddress,
+                  controller: signupController.passwordController,
+                  decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          signupController.toggleHiddenPassword();
+                        },
+                        icon: signupController.hiddenPassword.value
+                            ? Icon(Icons.visibility_off)
+                            : Icon(Icons.visibility),
+                      ),
+                      labelText: 'Password',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10))),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please Enter the Password';
+                    }
+                    if (value.trim().length < 8) {
+                      return 'Password must be at least 8 characters in length';
+                    }
+                    return null;
+                  },
+                ),
               ),
               const SizedBox(
                 height: 15,
@@ -113,23 +123,44 @@ class SignupPage extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
-                keyboardType: TextInputType.number,
                 readOnly: true,
+                keyboardType: TextInputType.number,
                 controller: signupController.dobController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   prefixIcon: Icon(Icons.calendar_month),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
                 ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please Enter the DOB';
+                  }
+                },
                 onTap: () async {
                   DateTime? selectedDate = await showDatePicker(
                     context: context,
                     initialDate: DateTime.now(),
                     firstDate: DateTime(1900),
-                    lastDate: DateTime(2024),
+                    lastDate: DateTime.now(),
                   );
 
                   if (selectedDate != null) {
-                    signupController.dobController.text =
-                        selectedDate.toLocal().toString().split(' ')[0];
+                    DateTime currentDate = DateTime.now();
+
+                    DateTime minimumBirthDate =
+                        currentDate.subtract(Duration(days: 365 * 18));
+
+                    if (selectedDate.isBefore(minimumBirthDate)) {
+                      signupController.dobController.text =
+                          selectedDate.toLocal().toString().split(' ')[0];
+                    } else {
+                      signupController.dobController.clear();
+                      Get.snackbar(
+                        "18+",
+                        "You have to be 18+ to sign up",
+                        backgroundColor: Colors.grey,
+                      );
+                    }
                   }
                 },
               ),
@@ -141,13 +172,13 @@ class SignupPage extends StatelessWidget {
                 children: [
                   Obx(
                     () => Checkbox(
-                        value: signupController.agree.value,
+                        value: signupController.agreedToTerms.value,
                         onChanged: (value) {
-                          signupController.agree.value = value!;
+                          signupController.agreedToTerms.value = value!;
                         }),
                   ),
                   const Text(
-                    'I agree to terms&conditions',
+                    'I Agree to terms&conditions',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -164,14 +195,8 @@ class SignupPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
                   onPressed: () {
-                    signupController.signUp();
                     if (_formKey.currentState!.validate()) {
-                      signupController.emailController.clear();
-                      signupController.passwordController.clear();
-                      signupController.firstNameController.clear();
-                      signupController.lastNameController.clear();
-                      signupController.dobController.clear();
-                      Get.to(() => LoginPage());
+                      signupController.signUp();
                     }
                   },
                   child: const Text(
@@ -195,7 +220,7 @@ class SignupPage extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => LoginPage());
+                      Get.back();
                     },
                     child: const Text(
                       "Sign In ",
