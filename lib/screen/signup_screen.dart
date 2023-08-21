@@ -210,8 +210,23 @@ class SignupScreen extends StatelessWidget {
                             ),
 
                             CheckboxListTile(
-                              title:
-                                  Text('Agree to terms & conditions,above 18+'),
+                              title: RichText(
+                                text: const TextSpan(
+                                  text: 'Agree to',
+                                  style: TextStyle(
+                                      fontSize: 17, color: Colors.black),
+                                 
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                        text: ' terms & conditions',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                   
+                                  ],
+                                ),
+                              ),
+                             
                               value: signupController.agreed.value,
                               onChanged: (value) {
                                 signupController.toggleAgreement(value!);
