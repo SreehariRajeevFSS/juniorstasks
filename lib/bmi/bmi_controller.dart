@@ -44,9 +44,9 @@ class BmiController extends GetxController {
       result.value = 'Please fill all the required fields';
     }
 
-    Future.delayed(Duration(seconds: 2), () {
-      result.value = '';
+    // Future.delayed(Duration(seconds: 2), () {
+    //   result.value = '';
       
-    });
+    // });
   }
 }
