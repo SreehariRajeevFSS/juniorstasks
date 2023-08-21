@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   math_expressions: ^2.4.0
+  dio: ^5.3.2
 
 dev_dependencies:
   flutter_test:
