@@ -1,5 +1,6 @@
 
-import 'package:challenge/screen/login_screen.dart';
+import 'package:challenge/Weather/weather_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
@@ -16,11 +17,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return GetMaterialApp(
+      
        debugShowCheckedModeBanner: false,
       title: 'Your App',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      //home: SiginScreen(),
-       home: LoginPage(),
+      theme: ThemeData(
+        useMaterial3: true,
+      //  primarySwatch: Colors.blue
+        ),
+      
+       home: WeatherPage(),
       
     );
   }
