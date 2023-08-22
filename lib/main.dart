@@ -1,5 +1,4 @@
-
-import 'package:challenge/Weather/weather_screen.dart';
+import 'package:challenge/graphchart/graphchart_ui.dart';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
       //  primarySwatch: Colors.blue
         ),
       
-       home: WeatherPage(),
+       home: GraphChartUi(),
       
     );
   }
