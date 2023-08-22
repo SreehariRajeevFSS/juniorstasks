@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Taks',
+        title: 'Tasks',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: LoginPage());
+       );
   }
 }
