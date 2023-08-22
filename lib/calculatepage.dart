@@ -53,7 +53,7 @@ class CalculatorPage extends StatelessWidget {
                         children: <TextSpan>[
                           TextSpan(
                             text: "${_controller.condition}",
-                            style: TextStyle(
+                            style:const TextStyle(
                                 color: Colors.white,
                                 fontSize: 25.0,
                                 fontWeight: FontWeight.bold),
@@ -69,7 +69,8 @@ class CalculatorPage extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   SizedBox(height: size.height * 0.03,),
-                  Text("Choose Data",
+                const  Text(
+                    "Choose Data",
                       style: TextStyle(
                           color: Color(0xFF12a644),
                           fontSize: 30.0,
@@ -83,7 +84,7 @@ class CalculatorPage extends StatelessWidget {
                         children: <TextSpan>[
                           TextSpan(
                             text: "${_controller.height.value} cm",
-                            style: TextStyle(
+                            style:const TextStyle(
                                 color: Color(0xFF403f3d),
                                 fontSize: 25.0,
                                 fontWeight: FontWeight.bold),
@@ -96,10 +97,11 @@ class CalculatorPage extends StatelessWidget {
                     min: 0,
                     max: 250,
                     onChanged: (height) {
-                      _controller.height.value = height;
+                      String hei = height.toStringAsFixed(1);
+                      _controller.height.value = double.parse(hei);
                     },
-                    divisions: 250,
-                    label: "${_controller.height.value.toStringAsFixed(1)}",
+                    //divisions: 10,s
+                    label: _controller.height.value.toString(),
                     activeColor: Color(0xFF403f3d),
                     inactiveColor: Colors.grey,
                   ),),
@@ -112,7 +114,7 @@ class CalculatorPage extends StatelessWidget {
                         children: <TextSpan>[
                           TextSpan(
                             text: "${_controller.weight.value} kg",
-                            style: TextStyle(
+                            style:const TextStyle(
                                 color: Color(0xFF403f3d),
                                 fontSize: 25.0,
                                 fontWeight: FontWeight.bold),
@@ -125,10 +127,11 @@ class CalculatorPage extends StatelessWidget {
                     min: 0,
                     max: 300,
                     onChanged: (weight) {
-                      _controller.weight.value = weight;
+                      String wei = weight.toStringAsFixed(1);
+                      _controller.weight.value = double.parse(wei);
                     },
-                    divisions: 300,
-                    label: "${_controller.weight.value.toStringAsFixed(1)}",
+                    //divisions: 300,
+                    label: _controller.weight.value.toString(),
                     activeColor: Color(0xFF403f3d),
                     inactiveColor: Colors.grey,
                   ),),
