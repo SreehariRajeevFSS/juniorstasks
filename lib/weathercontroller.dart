@@ -1,6 +1,7 @@
-import 'package:dio/dio.dart';
-import 'package:get/get.dart';
 
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'weathermodel.dart';
 
 class WeatherController extends GetxController {
@@ -13,6 +14,25 @@ class WeatherController extends GetxController {
     longitude: 0.0,
   ).obs;
 
+  List<String> allIndianCities = [
+    'Tirupati',
+    'Mumbai',
+    'Delhi',
+    'Chennai',
+    'Nellore',
+    'Bangalore',
+    'Hyderabad',
+    'India',
+    'Chittoor',
+    'America',
+    'Rayachoti',
+    'Guntur',
+    'Madanapalle',
+    'hsdfdfhj',
+    'fhhadfjj',
+    'dbhasbds',
+  ];
+
   Future<void> getWeatherData() async {
     final dio = Dio();
     try {
@@ -23,11 +43,28 @@ class WeatherController extends GetxController {
       if (response.statusCode == 200) {
         weatherData.value = WeatherData.fromJson(response.data);
       } else {
-        throw Exception('Failed to load weather data');
+        showCityNotFoundError();
       }
     } catch (error) {
-      throw Exception('An error occurred. Please try again later.');
+      showCityNotFoundError();
     }
+  }
+
+  void showCityNotFoundError() {
+    Get.snackbar(
+      'City Not Found',
+      'Please select a correct city name',
+      snackPosition: SnackPosition.BOTTOM,
+      backgroundColor: Colors.blue,
+      colorText: Colors.white,
+    );
+    weatherData.value = WeatherData(
+      temperature: 0.0,
+      description: '',
+      latitude: 0.0,
+      longitude: 0.0,
+    );
+    
   }
 
   @override
@@ -36,3 +73,5 @@ class WeatherController extends GetxController {
     getWeatherData();
   }
 }
+
+
