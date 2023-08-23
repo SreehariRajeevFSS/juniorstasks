@@ -9,14 +9,12 @@ class BarChartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      body: ListView(children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 6,
-          ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 40),
           child: Column(
             children: [
-              Padding(padding: EdgeInsets.symmetric(vertical: 10)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const [
@@ -32,7 +30,7 @@ class BarChartPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 30,
+                height: 50,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -59,7 +57,7 @@ class BarChartPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 50,
+                height: 80,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
@@ -112,72 +110,54 @@ class BarChartPage extends StatelessWidget {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
+                      padding: EdgeInsets.only(bottom: 45),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [
-                              const CircleAvatar(
-                                radius: 5,
-                                backgroundColor: Colors.amber,
+                              Icon(
+                                Icons.circle,
+                                size: 10,
+                                color: Colors.red[300],
                               ),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              Column(
-                                children: const [
-                                  Text(
-                                    "Gross Margin",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
+                              SizedBox(width: 12),
+                              const Text(
+                                'Gross Margin',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500),
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 10,
-                          ),
+                          SizedBox(height: 5),
                           Row(
                             children: [
-                              const CircleAvatar(
-                                radius: 5,
-                                backgroundColor: Colors.redAccent,
-                              ),
-                              Column(
-                                children: const [
-                                  Text(
-                                    "  CLR(Retention)",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
+                              Icon(Icons.circle,
+                                  size: 10, color: Colors.blue[300]),
+                              SizedBox(width: 12),
+                              const Text(
+                                'CLR(Retention)',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500),
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 10,
-                          ),
+                          SizedBox(height: 5),
                           Row(
                             children: [
-                              const CircleAvatar(
-                                radius: 5,
-                                backgroundColor: Colors.blueAccent,
-                              ),
-                              const SizedBox(
-                                width: 20,
-                              ),
-                              Column(
-                                children: const [
-                                  Text(
-                                    "Churn Rate",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
+                              Icon(Icons.circle,
+                                  size: 10, color: Colors.amber[300]),
+                              SizedBox(width: 12),
+                              const Text(
+                                'Churn Rate',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500),
                               ),
                             ],
                           ),
@@ -188,7 +168,7 @@ class BarChartPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 5,
+                height: 50,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -215,39 +195,45 @@ class BarChartPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 10,
+                height: 60,
               ),
-              Row(children: [
-                Container(
-                  margin: EdgeInsets.all(8),
-                  height: 200,
-                  decoration: BoxDecoration(),
-                  child: AspectRatio(
-                    aspectRatio: 10 / 6,
-                    child: DChartBarCustom(
-                      showDomainLabel: true,
-                      spaceBetweenItem: 20,
-                      radiusBar: BorderRadius.circular(10),
-                      listData: [
-                        DChartBarDataCustom(
-                            value: 13, label: "Jan", color: Colors.grey[400]),
-                        DChartBarDataCustom(
-                            value: 18, label: "Feb", color: Colors.grey[400]),
-                        DChartBarDataCustom(
-                            value: 25, label: "Mar", color: Colors.red[300]),
-                        DChartBarDataCustom(
-                            value: 22, label: "Apr", color: Colors.grey[400]),
-                        DChartBarDataCustom(
-                            value: 20, label: "May", color: Colors.grey[400]),
-                        DChartBarDataCustom(
-                            value: 23, label: "Jun", color: Colors.grey[400]),
-                      ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(children: [
+                  Container(
+                    margin: EdgeInsets.all(8),
+                    height: 220,
+                    decoration: BoxDecoration(),
+                    child: AspectRatio(
+                      aspectRatio: 11 / 7,
+                      child: DChartBarCustom(
+                        showDomainLabel: true,
+                        spaceBetweenItem: 10,
+                        radiusBar: BorderRadius.circular(10),
+                        listData: [
+                          DChartBarDataCustom(
+                              value: 13, label: "Jan", color: Colors.grey[400]),
+                          DChartBarDataCustom(
+                              value: 18, label: "Feb", color: Colors.grey[400]),
+                          DChartBarDataCustom(
+                              value: 25, label: "Mar", color: Colors.red[300]),
+                          DChartBarDataCustom(
+                              value: 22, label: "Apr", color: Colors.grey[400]),
+                          DChartBarDataCustom(
+                              value: 20, label: "May", color: Colors.grey[400]),
+                          DChartBarDataCustom(
+                              value: 23, label: "Jun", color: Colors.grey[400]),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ]),
+                ]),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
               Padding(
-                padding: const EdgeInsets.all(40),
+                padding: const EdgeInsets.all(20),
                 child: Row(
                   children: [
                     const Text(
@@ -295,7 +281,7 @@ class BarChartPage extends StatelessWidget {
                               color: Colors.black87),
                         ),
                         const SizedBox(
-                          width: 20,
+                          width: 18,
                         ),
                         Column(
                           children: const [
@@ -319,7 +305,7 @@ class BarChartPage extends StatelessWidget {
             ],
           ),
         ),
-      ]),
+      ),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
           elevation: 0,
