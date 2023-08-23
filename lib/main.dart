@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test/calculatepage.dart';
+import 'package:test/screens/calculate_screen.dart';
 
 
 
