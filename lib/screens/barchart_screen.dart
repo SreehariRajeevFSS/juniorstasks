@@ -8,43 +8,6 @@ class BarChartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Obx(
-        () => BottomNavigationBar(
-          elevation: 0,
-          currentIndex: controller.selectedIndex.value,
-          onTap: controller.changeTab,
-          items: [
-            BottomNavigationBarItem(
-                icon: const Icon(
-                  Icons.home,
-                  color: Colors.grey,
-                ),
-                label: '',
-                backgroundColor: Colors.grey[200]),
-            BottomNavigationBarItem(
-                icon: const Icon(
-                  Icons.bar_chart,
-                  color: Colors.red,
-                ),
-                label: '',
-                backgroundColor: Colors.grey[200]),
-            BottomNavigationBarItem(
-                icon: const Icon(
-                  Icons.settings,
-                  color: Colors.grey,
-                ),
-                label: '',
-                backgroundColor: Colors.grey[200]),
-            BottomNavigationBarItem(
-                icon: const Icon(
-                  Icons.email,
-                  color: Colors.grey,
-                ),
-                label: '',
-                backgroundColor: Colors.grey[200]),
-          ],
-        ),
-      ),
       backgroundColor: Colors.grey[200],
       body: ListView(children: [
         Padding(
@@ -159,7 +122,7 @@ class BarChartPage extends StatelessWidget {
                                 backgroundColor: Colors.amber,
                               ),
                               const SizedBox(
-                                width: 10,
+                                width: 15,
                               ),
                               Column(
                                 children: const [
@@ -182,15 +145,12 @@ class BarChartPage extends StatelessWidget {
                                 radius: 5,
                                 backgroundColor: Colors.redAccent,
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
                               Column(
                                 children: const [
                                   Text(
-                                    "Gross Margin",
+                                    "  CLR(Retention)",
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ],
@@ -207,12 +167,12 @@ class BarChartPage extends StatelessWidget {
                                 backgroundColor: Colors.blueAccent,
                               ),
                               const SizedBox(
-                                width: 10,
+                                width: 20,
                               ),
                               Column(
                                 children: const [
                                   Text(
-                                    "Gross Margin",
+                                    "Churn Rate",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
@@ -360,6 +320,43 @@ class BarChartPage extends StatelessWidget {
           ),
         ),
       ]),
+      bottomNavigationBar: Obx(
+        () => BottomNavigationBar(
+          elevation: 0,
+          currentIndex: controller.selectedIndex.value,
+          onTap: controller.changeTab,
+          items: [
+            BottomNavigationBarItem(
+                icon: const Icon(
+                  Icons.home,
+                  color: Colors.grey,
+                ),
+                label: '',
+                backgroundColor: Colors.grey[200]),
+            BottomNavigationBarItem(
+                icon: const Icon(
+                  Icons.bar_chart,
+                  color: Colors.red,
+                ),
+                label: '',
+                backgroundColor: Colors.grey[200]),
+            BottomNavigationBarItem(
+                icon: const Icon(
+                  Icons.settings,
+                  color: Colors.grey,
+                ),
+                label: '',
+                backgroundColor: Colors.grey[200]),
+            BottomNavigationBarItem(
+                icon: const Icon(
+                  Icons.email,
+                  color: Colors.grey,
+                ),
+                label: '',
+                backgroundColor: Colors.grey[200]),
+          ],
+        ),
+      ),
     );
   }
 }
