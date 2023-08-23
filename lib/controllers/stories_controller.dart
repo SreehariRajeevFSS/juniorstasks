@@ -16,10 +16,14 @@ class Images {
 
   String title;
 
-  Images({
-    required this.imageUrl,
-    required this.title,
-  });
+  String comments;
+  String text;
+
+  Images(
+      {required this.imageUrl,
+      required this.title,
+      required this.comments,
+      required this.text});
 }
 
 class StoriesController extends GetxController {
@@ -80,30 +84,42 @@ class StoriesController extends GetxController {
       imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrYRG75X0eu9un4Sn34PVBuOl959zXG2ZF2VCpJ8c00RuDV7h9qm8UWkpN_5FkhWZe_rM&usqp=CAU",
       title: "A boy has handsome",
+      text: "Flutter",
+      comments: "View all 8 comments",
     ),
     Images(
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ccDA0Tl-Ttu18o8rOoIPark-5N0LQaQpjw&usqp=CAU",
-      title: ' Car is very nice',
-    ),
+        imageUrl:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ccDA0Tl-Ttu18o8rOoIPark-5N0LQaQpjw&usqp=CAU",
+        title: ' Car is very nice',
+        text: "SQl",
+        comments: "View all 6 comments"),
     Images(
       imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZl25rQArtXar5k383QO5ZRen8YNEkXeEXYg&usqp=CAU",
       title: ' She is so pretty',
+      text: "Channel",
+      comments: "View all 8 comments",
     ),
     Images(
       imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Lp_vpjcJFZDWE_C0lyv5SjGWuZR3J_AtP7_ydmA2mqnRRlXdmwzVsdaCjp8LbIM-6Qk&usqp=CAU",
       title: 'Nice place',
+      text: "Music",
+      comments: "View all 5 comments",
     ),
     Images(
       imageUrl:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSff8JL9ALjQrQ11mS8MNLOGgyOXjRTJEckCA&usqp=CAU",
       title: 'Nice place ',
+      text: "Dart",
+      comments: "View all 16 comments",
     ),
     Images(
-        imageUrl:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVIkeiwbu6hn5zP31DgzDZ0VnJhRf6jYyC8A&usqp=CAU",
-        title: 'Butterfly is so nice')
+      imageUrl:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVIkeiwbu6hn5zP31DgzDZ0VnJhRf6jYyC8A&usqp=CAU",
+      title: 'Butterfly is so nice',
+      text: "JrNtr",
+      comments: "View all 20 comments",
+    )
   ].obs;
 }

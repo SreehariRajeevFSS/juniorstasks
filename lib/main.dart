@@ -4,9 +4,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'screens/instagram_screen.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(const MyApp());
 }
 
