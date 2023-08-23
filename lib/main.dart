@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test/weatherscreen.dart';
+import 'package:test/screens/weather_screen.dart';
+
 
 
 

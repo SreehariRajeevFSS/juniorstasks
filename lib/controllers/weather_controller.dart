@@ -1,8 +1,9 @@
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'weathermodel.dart';
+
+import '../models/weather_model.dart';
+
 
 class WeatherController extends GetxController {
   final String apiKey = '24dca1ed71101729fcd3cc49d9c9257b';

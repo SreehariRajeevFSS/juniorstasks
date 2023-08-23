@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'weathercontroller.dart';
+
+import '../controllers/weather_controller.dart';
+
 
 class WeatherScreen extends StatelessWidget {
   final WeatherController _weatherController = Get.put(WeatherController());
