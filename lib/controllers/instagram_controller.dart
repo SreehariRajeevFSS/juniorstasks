@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'instagrammodel.dart';
+import '../models/instagram_modeel.dart';
+
 class StoriesController extends GetxController {
   var storiesItems = <CircleAvatarStories>[].obs;
 
