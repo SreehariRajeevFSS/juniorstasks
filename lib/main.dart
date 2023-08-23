@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test/signup_page.dart';
+import 'package:test/screens/login_screen.dart';
+import 'package:test/screens/signup_screen.dart';
 
-import 'login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

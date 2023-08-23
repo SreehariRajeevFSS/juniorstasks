@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test/login_page.dart';
 
-import 'controllers/signup_controller.dart';
+import '../controllers/signup_controller.dart';
+import 'login_screen.dart';
+
 
 class SignUpPage extends StatelessWidget {
   final SignUpController _signUpController = Get.put(SignUpController());
