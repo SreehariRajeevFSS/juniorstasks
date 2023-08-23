@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GraphChartUi extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(240, 236, 233, 1),
       bottomNavigationBar: BottomNavigationBar(
+
           // type: BottomNavigationBarType.fixed,
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromRGBO(240, 236, 233, 1),
           selectedItemColor: Colors.red,
           unselectedItemColor: Colors.grey,
           iconSize: 30,
@@ -33,21 +34,22 @@ class GraphChartUi extends StatelessWidget {
             ),
           ]),
       appBar: AppBar(
+        // flexibleSpace: ,
         leading: Icon(Icons.arrow_back_ios),
-       
+
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
           "ANALYTICS",
-          style: GoogleFonts.quicksand(
-              fontSize: 23, color: Colors.black, fontWeight: FontWeight.w800),
+          style: TextStyle(
+              fontSize: 20, color: Colors.black, fontWeight: FontWeight.w700),
         ),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.sort))],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(12),
         child: Column(
-          
+          mainAxisAlignment:MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -56,7 +58,7 @@ class GraphChartUi extends StatelessWidget {
                 children: [
                   Text(
                     'KPI STATISTICS[%]',
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
                   ),
                   OutlinedButton(
                     autofocus: false,
@@ -71,7 +73,6 @@ class GraphChartUi extends StatelessWidget {
                       style: TextStyle(fontSize: 15),
                     ),
                   ),
-                  
                 ],
               ),
             ),
@@ -83,7 +84,6 @@ class GraphChartUi extends StatelessWidget {
               children: [
                 Stack(
                   clipBehavior: Clip.none,
-                 
                   children: [
                     CircleAvatar(
                       radius: 50,
@@ -137,7 +137,7 @@ class GraphChartUi extends StatelessWidget {
                           SizedBox(width: 8),
                           Text(
                             'Gross Margin',
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -148,7 +148,7 @@ class GraphChartUi extends StatelessWidget {
                           SizedBox(width: 8),
                           Text(
                             'CLR(Retention)',
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -163,7 +163,7 @@ class GraphChartUi extends StatelessWidget {
                           SizedBox(width: 8),
                           Text(
                             'Churn Rate',
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -172,7 +172,7 @@ class GraphChartUi extends StatelessWidget {
                 ),
               ],
             ),
-
+            //Spacer(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -182,8 +182,8 @@ class GraphChartUi extends StatelessWidget {
                     'SALES REVENUE',
                     style: TextStyle(
                         color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15),
+                         fontWeight: FontWeight.w600,
+                        fontSize: 16),
                   ),
                   OutlinedButton(
                     autofocus: false,
@@ -205,133 +205,137 @@ class GraphChartUi extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Container(
-                    height: 220,
-                    //  width:300,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                    child: AspectRatio(
-                      aspectRatio: 10 / 6,
-                      child: DChartBarCustom(
-                          showDomainLabel: true,
-                          radiusBar: BorderRadius.circular(12),
-                          listData: [
-                            DChartBarDataCustom(
-                              value: 18,
-                              label: 'Jan',
-                              color: Colors.grey[350],
-                            ),
-                            DChartBarDataCustom(
-                                value: 22,
-                                label: 'Feb',
-                                color: Colors.grey[350]),
-                            DChartBarDataCustom(
-                                value: 30,
-                                label: 'Mar',
-                                color: Colors.red[300]),
-                            DChartBarDataCustom(
-                                value: 25,
-                                label: 'Apr',
-                                color: Colors.grey[350]),
-                            DChartBarDataCustom(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(8),
+                      height: 200,
+                      //  width:300,
+                      decoration:
+                          BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                      child: AspectRatio(
+                        aspectRatio: 10 / 6,
+                        child: DChartBarCustom(
+                            showDomainLabel: true,
+                            spaceBetweenItem: 12,
+                            radiusBar: BorderRadius.circular(12),
+                            listData: [
+                              DChartBarDataCustom(
                                 value: 18,
-                                label: 'May',
-                                color: Colors.grey[350]),
-                            DChartBarDataCustom(
-                                value: 26,
-                                label: 'Jun',
-                                color: Colors.grey[350]),
-                          ]),
-                    ),
-                  )
-                ],
+                                label: 'Jan',
+                                color: Colors.grey[350],
+                              ),
+                              DChartBarDataCustom(
+                                  value: 22,
+                                  label: 'Feb',
+                                  color: Colors.grey[350]),
+                              DChartBarDataCustom(
+                                  value: 30,
+                                  label: 'Mar',
+                                  color: Colors.red[300]),
+                              DChartBarDataCustom(
+                                  value: 25,
+                                  label: 'Apr',
+                                  color: Colors.grey[350]),
+                              DChartBarDataCustom(
+                                  value: 18,
+                                  label: 'May',
+                                  color: Colors.grey[350]),
+                              DChartBarDataCustom(
+                                  value: 26,
+                                  label: 'Jun',
+                                  color: Colors.grey[350]),
+                            ]),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-           
-            SizedBox(
-              height: 30,
-            ),
+            
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Text(
-                    '18K',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 27,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        'Monthly',
-                        style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'Revenue',
-                        style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Container(
-                    color: Colors.grey,
-                    width: 2,
-                    height: 30,
-                  ),
-                  // VerticalDivider(
-                  //   thickness: 3,
-                  //   color: Colors.red,
-                  // ),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Text(
-                    '2%',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 27,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        'Revenue',
-                        style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'Growth',
-                        style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ],
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Text(
+                      '18K',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 27,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          'Monthly',
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Revenue',
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    Container(
+                      color: Colors.grey,
+                      width: 2,
+                      height: 30,
+                    ),
+                    // VerticalDivider(
+                    //   thickness: 3,
+                    //   color: Colors.red,
+                    // ),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    Text(
+                      '2%',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 27,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          'Revenue',
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Growth',
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-           
           ],
         ),
       ),
