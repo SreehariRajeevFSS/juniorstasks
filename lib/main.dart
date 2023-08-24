@@ -1,10 +1,8 @@
-
-import 'package:challenge/Weather/weather_screen.dart';
+import 'package:challenge/screen/gallery_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +22,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       //  primarySwatch: Colors.blue
         ),
+      home: GalleryPage(),
       
-       home: WeatherPage(),
       
     );
   }
