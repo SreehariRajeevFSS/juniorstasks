@@ -1,6 +1,7 @@
 
 
-import 'package:challenge/screen/instagram_screen.dart';
+
+import 'package:challenge/screen/search_engine_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       //  primarySwatch: Colors.blue
         ),
       
-       home: InstagramUi(),
+       home:  MovieSearchScreen(),
       
     );
   }
