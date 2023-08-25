@@ -297,10 +297,7 @@ class GraphChartUi extends StatelessWidget {
                       width: 2,
                       height: 30,
                     ),
-                    // VerticalDivider(
-                    //   thickness: 3,
-                    //   color: Colors.red,
-                    // ),
+                    
                     SizedBox(
                       width: 50,
                     ),
