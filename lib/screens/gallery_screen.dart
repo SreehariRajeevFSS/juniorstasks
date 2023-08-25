@@ -16,16 +16,8 @@ class GalleryScreen extends StatelessWidget {
           style: TextStyle(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.camera_alt,
-              size: 25,
-              color: Colors.black,
-            ),
-          )
-        ],
+       
+        
       ),
       backgroundColor: Colors.white,
       body: Padding(
