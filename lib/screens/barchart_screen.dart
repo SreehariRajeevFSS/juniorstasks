@@ -205,7 +205,7 @@ class BarChartPage extends StatelessWidget {
                     height: 220,
                     decoration: BoxDecoration(),
                     child: AspectRatio(
-                      aspectRatio: 11 / 7,
+                      aspectRatio: 11 / 8,
                       child: DChartBarCustom(
                         showDomainLabel: true,
                         spaceBetweenItem: 10,
