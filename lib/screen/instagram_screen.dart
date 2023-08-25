@@ -227,13 +227,13 @@ class InstagramUi extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 220),
-                child: Text('bbcearth',
+                child: Text('cearth',
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
                         fontSize: 15)),
               ),
-              Icon(Icons.more_horiz)
+              SizedBox(child: Icon(Icons.more_horiz))
             ]),
             Container(
               color: Colors.white,
